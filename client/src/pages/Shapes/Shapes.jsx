@@ -1,5 +1,7 @@
 import React, { useState } from 'react'
 
+import { useRouteMatch, useHistory } from 'react-router-dom'
+
 import { useQuery, useMutation, useQueryClient } from 'react-query'
 
 const Color = ({ color }) => {
@@ -54,6 +56,9 @@ const Shapes = () => {
     }
   )
 
+  let match = useRouteMatch()
+  let history = useHistory()
+
   const submitForm = _e => {
     _e.preventDefault()
 
@@ -66,6 +71,14 @@ const Shapes = () => {
       ...form,
       [name]: value,
     })
+  }
+
+  const handleDetail = data => {
+    const teste = () => {
+      history.push(`${match.url}/${data.id}`)
+    }
+
+    return teste
   }
 
   if (status === 'loading') {
@@ -110,7 +123,7 @@ const Shapes = () => {
           {data.map(row => (
             <tr key={row.id}>
               <td>{row.directoryId}</td>
-              <td>{row.name}</td>
+              <td onClick={handleDetail(row)}>{row.name}</td>
               <td style={{ display: 'flex', alignItems: 'center' }}>
                 {row.color} <Color color={row.color} />
               </td>
