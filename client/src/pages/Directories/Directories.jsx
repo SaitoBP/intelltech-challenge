@@ -1,13 +1,44 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState } from 'react'
+
+import { useQuery, useMutation, useQueryClient } from 'react-query'
 
 const Directories = () => {
-  const [form, setForm] = useState({ id: '', name: '' })
-  const [directories, setDirectories] = useState([])
+  const [form, setForm] = useState({ name: '' })
+
+  const queryClient = useQueryClient()
+
+  /* Queries - Used for caching */
+  const { status, data } = useQuery('directories', async () => {
+    const response = await fetch('http://localhost:5000/api/directories', { method: 'GET' })
+
+    return response.json()
+  })
+
+  const { mutate } = useMutation(
+    async data => {
+      const response = await fetch('http://localhost:5000/api/directories', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(data),
+      })
+
+      if (!response.ok) {
+        console.log(response)
+        throw new Error('Error when creating new directory')
+      }
+    },
+    {
+      onSuccess: () => {
+        queryClient.invalidateQueries('directories')
+      },
+    }
+  )
 
   const submitForm = _e => {
     _e.preventDefault()
 
     console.log(form)
+    mutate(form)
   }
 
   const handleForm = ({ target: { value, name } }) => {
@@ -17,14 +48,9 @@ const Directories = () => {
     })
   }
 
-  /* Fetch data */
-  useEffect(() => {
-    fetch('http://localhost:5000/api/directories', {
-      method: 'GET',
-    })
-      .then(res => res.json())
-      .then(res => setDirectories(res))
-  })
+  if (status === 'loading') {
+    return <h1>Loading...</h1>
+  }
 
   return (
     <div>
@@ -47,7 +73,7 @@ const Directories = () => {
         </thead>
 
         <tbody>
-          {directories.map(row => (
+          {data.map(row => (
             <tr key={row.id}>
               <td>{row.name}</td>
               <td>[Editar]</td>
