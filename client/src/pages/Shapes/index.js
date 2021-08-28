@@ -1,1 +1,1 @@
-export { default as Shapes } from './Shapes'
+export { default as Shapes } from './ShapesRoutes'
