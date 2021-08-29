@@ -1,38 +1,47 @@
 import React from 'react'
 
-import { useParams, useHistory } from 'react-router'
+import { useHistory } from 'react-router'
 
-import { useQuery } from 'react-query'
+import { Title } from '../../components/Title'
+import { Box } from '../../components/Box'
+import { Button } from '../../components/Button'
+
+import ShapeColor from './ShapeColor'
+
+import useRetrieveShapes from './useRetrieveShapes'
+
+import useShapesStyles from './useShapesStyles'
 
 const Shape = () => {
-  const { shapeId } = useParams()
+  const { status, data } = useRetrieveShapes().useById()
+
+  const css = useShapesStyles()
 
   const history = useHistory()
-
-  const { status, data } = useQuery('shape', async () => {
-    const response = await fetch(`http://localhost:5000/api/shapes/${shapeId}`, { method: 'GET' })
-
-    return response.json()
-  })
 
   if (status === 'loading') {
     return <h1>Loading...</h1>
   }
 
-  console.log(data)
-
   return (
-    <div>
-      <button onClick={history.goBack}>Voltar</button>
-      <h1>Shape: {shapeId}</h1>
-      <div>
-        <p>Diretorio: {data.directoryId}</p>
+    <Box className={css.shape_box}>
+      <Title>{data.name}</Title>
+
+      <div className={css.shape_info}>
+        <p>Diretorio: {data.directories.name}</p>
         <p>Nome: {data.name}</p>
         <p>Tipo: {data.type}</p>
-        <p>Cor: {data.color}</p>
+
+        <div className={css.color_container}>
+          <p>Cor: {data.color}</p>
+          <ShapeColor color={data.color} />
+        </div>
+
         <p>Tamanho: {data.size}</p>
       </div>
-    </div>
+
+      <Button onClick={history.goBack}>Voltar</Button>
+    </Box>
   )
 }
 

@@ -10,23 +10,40 @@ const useShapesStyles = createUseStyles({
     display: 'flex',
   },
 
-  shape_color: {
-    width: '15px',
-    height: '15px',
-    backgroundColor: color => color,
-    borderRadius: '50%',
-    margin: '0 5px',
-  },
-
   color_container: {
     display: 'flex',
-    justifyContent: 'center',
     alignItems: 'center',
-    textAlign: 'justify',
-    textTransform: 'uppercase',
 
     '& span': {
-      minWidth: '80px',
+      margin: '0 auto',
+      justifySelf: 'center',
+      textAlign: 'justify',
+      textTransform: 'uppercase',
+    },
+  },
+
+  shape_color: {
+    height: '15px',
+    width: '15px',
+    backgroundColor: color => color,
+    borderRadius: '50%',
+    margin: '0 10px',
+  },
+
+  shape_box: {
+    marginTop: '15vh',
+  },
+
+  shape_info: {
+    margin: '50px 0',
+
+    '& p': {
+      padding: '10px',
+    },
+
+    '& .data': {
+      display: 'flex',
+      justifyContent: 'space-around',
     },
   },
 })
