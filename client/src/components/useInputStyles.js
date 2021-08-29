@@ -11,6 +11,7 @@ const useInputStyles = createUseStyles({
 
   input: {
     height: '100%',
+    minWidth: '140px',
     width: '100%',
     padding: '10px',
     margin: '10px 0',
