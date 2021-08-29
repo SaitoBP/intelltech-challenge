@@ -2,17 +2,15 @@ import React from 'react'
 
 import useInputStyles from '../useInputStyles'
 
-const Select = ({ children, id, label, register }) => {
+const TextField = ({ id, type, label, required, register }) => {
   const css = useInputStyles()
 
   return (
     <div className={css.root}>
       <label htmlFor={id}>{label}</label>
-      <select className={css.input} id={id} {...register}>
-        {children}
-      </select>
+      <input className={css.input} required={required} id={id} type={type} {...register} />
     </div>
   )
 }
 
-export default Select
+export default TextField
