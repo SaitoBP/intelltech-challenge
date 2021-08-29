@@ -1,10 +1,13 @@
 import React from 'react'
 
+import { Box } from '../../components/Box'
+import { Title } from '../../components/Title'
+
 const Homepage = () => {
   return (
-    <div>
-      <h1>Homepage</h1>
-    </div>
+    <Box>
+      <Title>Homepage</Title>
+    </Box>
   )
 }
 
