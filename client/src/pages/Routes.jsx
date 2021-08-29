@@ -1,6 +1,6 @@
 import React from 'react'
 
-import { BrowserRouter, Switch, Route, Link } from 'react-router-dom'
+import { BrowserRouter, Switch, Route } from 'react-router-dom'
 
 import { QueryClient, QueryClientProvider } from 'react-query'
 
@@ -8,35 +8,27 @@ import { Directories } from './Directories'
 import { Homepage } from './Homepage'
 import { Shapes } from './Shapes'
 
+import useGlobalStyles from './useGlobalStyles'
+
+import { Navbar } from '../components/Navbar'
+
 /* Create a Client */
 const queryClient = new QueryClient()
 
 const Routes = () => {
+  useGlobalStyles()
+
   return (
     <QueryClientProvider client={queryClient}>
       <BrowserRouter>
-        <nav>
-          <ul>
-            <li>
-              <Link to='/'>Home</Link>
-            </li>
-
-            <li>
-              <Link to='/diretorio'>Diretorios</Link>
-            </li>
-
-            <li>
-              <Link to='/formas'>Formas Geometricas</Link>
-            </li>
-          </ul>
-        </nav>
+        <Navbar />
 
         <Switch>
           <Route exact path='/'>
             <Homepage />
           </Route>
 
-          <Route path='/diretorio'>
+          <Route path='/diretorios'>
             <Directories />
           </Route>
 
