@@ -1,11 +1,13 @@
 import React from 'react'
 
+import clsx from 'clsx'
+
 import useBoxStyles from './useBoxStyles'
 
-const Box = ({ children }) => {
+const Box = ({ children, className }) => {
   const css = useBoxStyles()
 
-  return <section className={css.root}>{children}</section>
+  return <section className={clsx(css.root, className)}>{children}</section>
 }
 
 export default Box
