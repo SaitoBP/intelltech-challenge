@@ -48,3 +48,19 @@ Desenvolver um sistema cliente/servidor web para cadastro de diretorios e formas
 - O banco de dados esta sendo feito em SQLite, porem como estou usando uma ORM é facil refatorar e adicionar outro banco SQL
 - Todos os componentes do frontend foram feitos do zero, resolvi escrever os componentes do zero para demonstrar o conhecimento basico de alguns conceitos importantes como gerenciamento de estado,
   estilização e fetch
+
+### Rotas da API
+
+**Directories**
+
+(GET): http://localhost:5000/api/directories
+
+(POST): http://localhost:5000/api/directories
+
+**Shapes**
+
+(GET): http://localhost:5000/api/shapes
+
+(GET): http://localhost:5000/api/shapes:{id}
+
+(POST): http://localhost:5000/api/shapes
