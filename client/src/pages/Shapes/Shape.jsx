@@ -33,7 +33,7 @@ const Shape = () => {
         <p>Tipo: {data.type}</p>
 
         <div className={css.color_container}>
-          <p>Cor: {data.color}</p>
+          <p>Cor: {data.color.toUpperCase()}</p>
           <ShapeColor color={data.color} />
         </div>
 
