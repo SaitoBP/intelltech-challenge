@@ -8,6 +8,7 @@ const useButtonStyles = createUseStyles({
 
     /* Neww style */
     minHeight: '30px',
+    minWidth: '100px',
     padding: '10px',
     margin: '0 5px',
     border: 'none',
