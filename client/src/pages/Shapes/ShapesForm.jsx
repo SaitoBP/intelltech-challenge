@@ -2,27 +2,24 @@ import React from 'react'
 
 import { useForm } from 'react-hook-form'
 
+import { Form, FormFields } from '../../components/Form'
 import { Select } from '../../components/Select'
 import { TextField } from '../../components/TextField'
 import { Button } from '../../components/Button'
 
-import useSubmitForm from './useSubmitForm'
+import useSubmitShape from './useSubmitShape'
 import useRetrieveDirectories from '../Directories/useRetrieveDirectories'
 
-import useShapesStyles from './useShapesStyles'
-
 const ShapesForm = () => {
-  const css = useShapesStyles()
-
   const { register, handleSubmit } = useForm()
 
-  const submit = useSubmitForm()
+  const submit = useSubmitShape()
 
   const { status, data } = useRetrieveDirectories()
 
   return (
-    <form onSubmit={handleSubmit(submit)} className={css.form}>
-      <div className={css.form_fields}>
+    <Form onSubmit={handleSubmit(submit)}>
+      <FormFields>
         {status === 'loading' ? (
           <Select id='shapes-directory' label='Diretorio'>
             <option value={null}>Loading...</option>
@@ -65,10 +62,10 @@ const ShapesForm = () => {
           label='Tamanho(px)'
           register={register('size')}
         />
-      </div>
+      </FormFields>
 
       <Button type='submit'>Criar</Button>
-    </form>
+    </Form>
   )
 }
 

@@ -1,15 +1,6 @@
 import { createUseStyles } from 'react-jss'
 
 const useShapesStyles = createUseStyles({
-  form: {
-    display: 'flex',
-    flexDirection: 'column',
-  },
-
-  form_fields: {
-    display: 'flex',
-  },
-
   color_container: {
     display: 'flex',
     alignItems: 'center',
@@ -20,6 +11,10 @@ const useShapesStyles = createUseStyles({
       textAlign: 'justify',
       textTransform: 'uppercase',
     },
+  },
+
+  table_col_color: {
+    width: '100px',
   },
 
   shape_color: {

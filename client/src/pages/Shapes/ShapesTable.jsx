@@ -15,11 +15,11 @@ const ShapesTable = ({ data }) => {
   let history = useHistory()
 
   const handleDetail = data => {
-    const teste = () => {
+    const goTo = () => {
       history.push(`${match.url}/${data.id}`)
     }
 
-    return teste
+    return goTo
   }
 
   return (
@@ -28,9 +28,11 @@ const ShapesTable = ({ data }) => {
         <tr>
           <td align='left'>Diretorio</td>
           <td align='left'>Nome</td>
-          <td align='center' style={{ width: '15%' }}>
+
+          <td align='center' className={css.table_col_color}>
             Cor
           </td>
+
           <TableActions header type='edit' />
           <TableActions header type='delete' />
         </tr>
