@@ -41,3 +41,10 @@ Desenvolver um sistema cliente/servidor web para cadastro de diretorios e formas
 - Não é necessario fazer telas e rotas de DELETE ou UPDATE, apenas GET e POST
 - Não é necessario desenhar a forma geometicas, apenas exibir as informações cadastradas
 - A escolha do banco de dados é livre, podendo ser um SQL ou um NoSQL
+
+## Disclaimer
+
+- O servidor foi solicitado em C#, porem não tenho pratica com C#, apenas C... Para não deixar de fazer o teste, resolvi desenvolver usando JavaScript.
+- O banco de dados esta sendo feito em SQLite, porem como estou usando uma ORM é facil refatorar e adicionar outro banco SQL
+- Todos os componentes do frontend foram feitos do zero, resolvi escrever os componentes do zero para demonstrar o conhecimento basico de alguns conceitos importantes como gerenciamento de estado,
+  estilização e fetch
