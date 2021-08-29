@@ -37,7 +37,7 @@ const Shape = () => {
           <ShapeColor color={data.color} />
         </div>
 
-        <p>Tamanho: {data.size}</p>
+        <p>Tamanho: {data.size} px</p>
       </div>
 
       <Button onClick={history.goBack}>Voltar</Button>
