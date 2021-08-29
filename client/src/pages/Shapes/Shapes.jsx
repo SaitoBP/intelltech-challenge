@@ -4,6 +4,8 @@ import { useRouteMatch, useHistory } from 'react-router-dom'
 
 import { useQuery, useMutation, useQueryClient } from 'react-query'
 
+import { Box } from '../../components/Box'
+
 const Color = ({ color }) => {
   return (
     <div
@@ -86,7 +88,7 @@ const Shapes = () => {
   }
 
   return (
-    <div>
+    <Box>
       <h1>Formas Geometricas</h1>
 
       <form onSubmit={submitForm}>
@@ -133,7 +135,7 @@ const Shapes = () => {
           ))}
         </tbody>
       </table>
-    </div>
+    </Box>
   )
 }
 
