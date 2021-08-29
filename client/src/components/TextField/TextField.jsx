@@ -2,13 +2,20 @@ import React from 'react'
 
 import useInputStyles from '../useInputStyles'
 
-const TextField = ({ id, type, label, required, register }) => {
-  const css = useInputStyles()
+const TextField = ({ id, type, label, required, width, register }) => {
+  const css = useInputStyles(width)
 
   return (
     <div className={css.root}>
       <label htmlFor={id}>{label}</label>
-      <input className={css.input} required={required} id={id} type={type} {...register} />
+      <input
+        className={css.input}
+        style={{ width: width }}
+        required={required}
+        id={id}
+        type={type}
+        {...register}
+      />
     </div>
   )
 }
