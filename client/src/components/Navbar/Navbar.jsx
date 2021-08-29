@@ -11,15 +11,21 @@ const Navbar = () => {
     <nav className={css.root}>
       <ul className={css.list}>
         <li>
-          <Link to='/'>Home</Link>
+          <Link className={css.link} to='/'>
+            Home
+          </Link>
         </li>
 
         <li>
-          <Link to='/diretorios'>Diretorios</Link>
+          <Link className={css.link} to='/diretorios'>
+            Diretorios
+          </Link>
         </li>
 
         <li>
-          <Link to='/formas'>Formas Geometricas</Link>
+          <Link className={css.link} to='/formas'>
+            Formas Geometricas
+          </Link>
         </li>
       </ul>
     </nav>

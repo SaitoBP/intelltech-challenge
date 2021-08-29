@@ -19,7 +19,16 @@ const useNavbarStyles = createUseStyles({
     },
   },
 
-  link: {},
+  link: {
+    textDecoration: 'none',
+    color: 'black',
+    transition: '300ms border-color',
+    borderBottom: '1px solid transparent',
+
+    '&:hover': {
+      borderColor: 'black',
+    },
+  },
 })
 
 export default useNavbarStyles
